@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - v2
+      - v3
   pull_request:
 
 jobs:
@@ -21,8 +22,8 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
         with:
-          node-version: 16
-          cache: 'npm'
+          node-version: 20
+          cache: npm
       - name: Install Node Dependencies
         run: npm ci
         env:
@@ -43,6 +44,7 @@ jobs:
         with:
           name: eslint_report.json
           path: eslint_report.json
+          retention-days: 7
       - name: Test That The Project Builds
         run: npm run build
       - name: Run Unit Tests
