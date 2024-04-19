@@ -2,6 +2,8 @@
 
 ## Version `3.0.0`
 
+See the [Changelog](./CHANGELOG.md) for breaking changes when upgrading from `v1` or `v2`
+
 ## Description
 
 Analyzes an ESLint a report JSON file and posts the results.
