@@ -8,7 +8,7 @@
     "build": "ncc build src/index.ts",
     "prestart": "npm run build",
     "start": "node dist/index.js",
-    "test": "jest",
+    "test": "GITHUB_ACTION=1 INPUT_GITHUB_TOKEN='secret123'",
     "lint": "eslint --ext .ts src",
     "lint:fix": "eslint --fix --ext .ts src",
     "lint:report": "eslint --ext .ts --output-file eslint_report.json --format json src"
