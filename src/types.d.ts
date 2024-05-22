@@ -1,3 +1,5 @@
+import {ESLint as ESLintType} from '@types/eslint'
+
 // https://www.npmjs.com/package/@octokit/types
 import {Endpoints, GetResponseDataTypeFromEndpointMethod} from '@octokit/types'
 import {Webhooks} from '@octokit/webhooks-definitions'
@@ -42,16 +44,7 @@ export interface ESLintMessage {
   messageId?: string
 }
 
-export interface ESLintEntry {
-  filePath: string
-  messages: ESLintMessage[]
-  errorCount: number
-  warningCount: number
-  fixableErrorCount: number
-  fixableWarningCount: number
-  source?: string
-  usedDeprecatedRules?: []
-}
+export type ESLintEntry = ESLintType.LintResult
 
 export type ESLintReport = ESLintEntry[]
 
