@@ -1,6 +1,6 @@
 import type {ESLintReport, ChecksUpdateParamsOutputAnnotations, AnalyzedESLintReport} from './types'
 import constants from './constants'
-const {toolkit, GITHUB_WORKSPACE, OWNER, REPO, SHA, failOnWarning, unusedDirectiveMessagePrefix} = constants
+const {core, GITHUB_WORKSPACE, OWNER, REPO, SHA, failOnWarning, unusedDirectiveMessagePrefix} = constants
 
 /**
  * Analyzes an ESLint report JS object and returns a report
@@ -26,7 +26,7 @@ export default function getAnalyzedReport(files: ESLintReport): AnalyzedESLintRe
     // Get the file path and any warning/error messages
     const {filePath, messages} = file
 
-    toolkit.log.info(`Analyzing ${filePath}`)
+    core.info(`Analyzing ${filePath}`)
 
     // Skip files with no error or warning messages
     if (!messages.length) {
@@ -44,7 +44,12 @@ export default function getAnalyzedReport(files: ESLintReport): AnalyzedESLintRe
     // Loop through all the error/warning messages for the file
     for (const lintMessage of messages) {
       // Pull out information about the error/warning message
-      const {line, column, severity, ruleId, message} = lintMessage
+      const {column, severity, ruleId, message} = lintMessage
+      // Default line to 1 if it's not present
+      let {line} = lintMessage
+      if (!line) {
+        line = 1
+      }
 
       // If there's no rule ID (e.g. an ignored file warning), skip
       if (!ruleId && !message.startsWith(unusedDirectiveMessagePrefix)) continue
