@@ -24,7 +24,7 @@ This allows for more flexibility on how ESLint is run. This action is agnostic e
 
 | Name | Description | Required | Default Value |
 |---|---|---|---|
-| `repo-token` | The [`GITHUB_TOKEN` secret](https://docs.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token#about-the-github_token-secret) | No | `${{ github.token }}` |
+| `GITHUB_TOKEN` | The [`GITHUB_TOKEN` secret](https://docs.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token#about-the-github_token-secret) | No | `${{ github.token }}` |
 | `report-json` | Path or [glob pattern](https://github.com/actions/toolkit/tree/master/packages/glob) to locate the ESLint report JSON file. Use multiple lines to specify multiple glob patterns. | No | `eslint_report.json` |
 | `only-pr-files` | Only annotate files changed when run on the `pull_request` event | No | `true` |
 | `fail-on-warning` | Fail the GitHub Action when ESLint warnings are detected. Set to `true` to enable. | No | `false` |
