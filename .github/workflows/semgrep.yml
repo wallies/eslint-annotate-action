@@ -38,7 +38,7 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       # Checkout project source
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v3
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v3
 
       # Scan code using project's configuration on https://semgrep.dev/manage
       - run: semgrep ci --sarif > semgrep.sarif
