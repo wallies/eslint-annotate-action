@@ -26,7 +26,6 @@ export default [{
         "@typescript-eslint": typescriptEslint,
         prettier,
     },
-
     languageOptions: {
         globals: {
             ...globals.node,
@@ -37,7 +36,6 @@ export default [{
         ecmaVersion: 2018,
         sourceType: "module",
     },
-
     rules: {
         "prettier/prettier": ["error", {
             singleQuote: true,
@@ -47,7 +45,6 @@ export default [{
             tabWidth: 2,
             semi: false,
         }],
-
         camelcase: "off",
     },
 }];
