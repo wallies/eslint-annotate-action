@@ -70,7 +70,7 @@ jobs:
 
       - uses: snapshift/action-check-typescript@0e25ee8039f7f92080a6bea8b3d60fa4ab70acb2 # v1.1.0
         with:
-          ts-config-path: './tsconfig.check.json'
+          ts-config-path: './tsconfig.json'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           use-check: true
           check-fail-mode: added
